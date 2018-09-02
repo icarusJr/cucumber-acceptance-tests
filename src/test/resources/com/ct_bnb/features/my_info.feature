@@ -19,7 +19,7 @@ Scenario: batches
 		| 7	| true |
 		| 8	| false|
 		
-@db @temp 
+@db  
 Scenario Outline: campust test 
 	Given user logs in using "<email>" "<password>" 
 	Then correct campus should be displayed for "<email>"
