@@ -80,7 +80,7 @@ public class UserInformationStepDefs {
 		String actualFistName = responce.jsonPath().get("firstName");
 		String actualLastName = responce.jsonPath().get("lastName");
 		String actualRole = responce.jsonPath().get("role");
-		String actualId = responce.jsonPath().get("id") + "";
+		String actualId = responce.jsonPath().getString("id");
 
 		assertEquals(expectedFirstName, actualFistName);
 		assertEquals(expectedLastName, actualLastName);
