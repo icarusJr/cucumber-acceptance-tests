@@ -23,12 +23,12 @@ public class Environment {
 		DB_HOST = properties.getProperty("db_host");
 		DB_USERNAME = properties.getProperty("db_username");
 		DB_PASSWORD = properties.getProperty("db_password");
-		BASE_URL = properties.getProperty("base_url");
-		TEACHER_USERNAME = properties.getProperty("teacher_username");
+		BASE_URI = properties.getProperty("base_url");
+		TEACHER_USERNAME = properties.getProperty("teacher_email");
 		TEACHER_PASSWORD = properties.getProperty("teacher_password");
-		MEMBER_USERNAME = properties.getProperty("member_username");
+		MEMBER_USERNAME = properties.getProperty("member_email");
 		MEMBER_PASSWORD = properties.getProperty("member_password");
-		LEADER_USERNAME = properties.getProperty("leader_username");
+		LEADER_USERNAME = properties.getProperty("leader_email");
 		LEADER_PASSWORD = properties.getProperty("leader_password");
 
 	}
@@ -36,7 +36,7 @@ public class Environment {
 	public static final String DB_USERNAME;
 	public static final String DB_PASSWORD;
 	public static final String DB_HOST;
-	public static final String BASE_URL;
+	public static final String BASE_URI;
 	public static final String TEACHER_USERNAME;
 	public static final String TEACHER_PASSWORD;
 	public static final String MEMBER_USERNAME;
