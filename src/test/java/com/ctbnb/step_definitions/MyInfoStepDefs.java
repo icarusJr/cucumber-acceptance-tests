@@ -17,6 +17,7 @@ import com.prestashop.utilities.BrowserUtils;
 import com.prestashop.utilities.ConfigurationReader;
 import com.prestashop.utilities.DBUtils;
 import com.prestashop.utilities.Driver;
+import com.prestashop.utilities.Environment;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -26,7 +27,7 @@ public class MyInfoStepDefs {
 
 	@Given("user logs in using {string} {string}")
 	public void user_logs_in_using(String username, String password) {
-		Driver.getDriver().get(ConfigurationReader.getProperty("qa1_url"));
+		Driver.getDriver().get(Environment.URL);
 		SigninPage signInPage = new SigninPage();
 		signInPage.email.sendKeys(username);
 		signInPage.password.sendKeys(password+ Keys.ENTER);

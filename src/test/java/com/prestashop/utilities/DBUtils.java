@@ -15,9 +15,9 @@ public class DBUtils {
 
 	public static void main(String[] args) {
 		createConnection();
-		String query= "select * from users where team_id=38;";
+		String query = "select * from users where team_id=38;";
 		System.out.println(getColumnData(query, "firstname"));
-		
+
 		destroy();
 	}
 
@@ -26,9 +26,10 @@ public class DBUtils {
 	private static ResultSet resultSet;
 
 	public static void createConnection() {
-		String url = ConfigurationReader.getProperty("qa1_db_host");
-		String user = ConfigurationReader.getProperty("qa1_db_username");
-		String password = ConfigurationReader.getProperty("qa1_db_password");
+		String url = Environment.DB_HOST;
+		String user = Environment.DB_USERNAME;
+		String password = Environment.DB_PASSWORD;
+
 
 		try {
 			connection = DriverManager.getConnection(url, user, password);

@@ -50,10 +50,10 @@ public class UserInformationStepDefs {
 
 	@Given("I am logged reservation api as teacher")
 	public void i_am_logged_reservation_api_as_teacher() {
-		RestAssured.baseURI = ConfigurationReader.getProperty("qa1_base_url");
+		RestAssured.baseURI = ConfigurationReader.getProperty("qa2_base_url");
 
-		String email = ConfigurationReader.getProperty("qa1_teacher_email");
-		String password = ConfigurationReader.getProperty("qa1_teacher_password");
+		String email = ConfigurationReader.getProperty("qa2_teacher_email");
+		String password = ConfigurationReader.getProperty("qa2_teacher_password");
 		Response res = RestAssured.given().param("email", email).param("password", password).when()
 				.get(RestAssured.baseURI + "/sign");
 		res.then().statusCode(200);
