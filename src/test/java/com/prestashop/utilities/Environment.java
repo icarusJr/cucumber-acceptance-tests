@@ -26,10 +26,10 @@ public class Environment {
 		BASE_URI = properties.getProperty("base_url");
 		TEACHER_USERNAME = properties.getProperty("teacher_email");
 		TEACHER_PASSWORD = properties.getProperty("teacher_password");
-		MEMBER_USERNAME = properties.getProperty("member_email");
-		MEMBER_PASSWORD = properties.getProperty("member_password");
-		LEADER_USERNAME = properties.getProperty("leader_email");
-		LEADER_PASSWORD = properties.getProperty("leader_password");
+		MEMBER_USERNAME = properties.getProperty("team_member_email");
+		MEMBER_PASSWORD = properties.getProperty("team_member_password");
+		LEADER_USERNAME = properties.getProperty("team_leader_email");
+		LEADER_PASSWORD = properties.getProperty("team_leader_password");
 
 	}
 	public static final String URL;

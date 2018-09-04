@@ -47,7 +47,7 @@ Scenario Outline: Verify students by id
 		
 		
 		
-@ws @db @temp 
+@ws @db 
 Scenario: Verify all students by id 
 	Given  I am logged reservation api as teacher 
 	When I get all students from users table 

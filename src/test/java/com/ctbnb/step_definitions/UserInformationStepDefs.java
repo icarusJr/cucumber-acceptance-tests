@@ -8,6 +8,8 @@ import java.util.Map;
 
 import com.prestashop.utilities.DBUtils;
 import com.prestashop.utilities.Environment;
+import com.prestashop.utilities.RestUtils;
+import com.prestashop.utilities.RestUtils.UserType;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -53,14 +55,7 @@ public class UserInformationStepDefs {
 
 	@Given("I am logged reservation api as teacher")
 	public void i_am_logged_reservation_api_as_teacher() {
-		RestAssured.baseURI = Environment.BASE_URI;
-		String email = Environment.TEACHER_USERNAME;
-		String password = Environment.TEACHER_PASSWORD;
-		Response res = RestAssured.given().param("email", email).param("password", password).when()
-				.get(RestAssured.baseURI + "/sign");
-		res.then().statusCode(200);
-		token = res.jsonPath().get("accessToken");
-		System.out.println(token);
+		token = RestUtils.accessToken(UserType.TEACHER);
 
 	}
 
