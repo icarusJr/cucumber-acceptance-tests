@@ -16,7 +16,9 @@ public class Driver {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			switch (ConfigurationReader.getProperty("browser")) {
+			String browser = System.getProperty("browser")
+					!=null? System.getProperty("browser"): ConfigurationReader.getProperty("browser");
+			switch (browser) {
 			case "firefox":
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();

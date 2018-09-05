@@ -16,7 +16,7 @@ Scenario: Product details with map
 		|condition|	New					  |
 		|size	  |	S					  |
 		|price    | 	$28.98		  	      |
-		
+	@smoke	
 Scenario: Product details with map 2
 	Given the user is on the home page
 	When the user selects "Printed Dress"

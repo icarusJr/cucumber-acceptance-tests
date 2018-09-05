@@ -12,7 +12,7 @@ Scenario: my team
 	When the user is on the my team page 
 	Then team info should match the db records using "efewtrell8c@craigslist.org" 
 	
-@db 
+@db @temp
 Scenario: batches 
 	Given I retrieve the batches information 
 	Then following batches should be displayed 

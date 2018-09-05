@@ -25,7 +25,7 @@ Scenario: Verify existing user email
 	When I try to register a new user with existing email
 	Then user with same email exists message should be returned
 	
-@ws	@temp @db	
+@ws @db	
 Scenario: Verify existing user email 
 	Given I am logged reservation api as teacher 
 	When I register a new user
