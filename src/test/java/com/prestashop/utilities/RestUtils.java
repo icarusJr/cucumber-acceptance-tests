@@ -4,13 +4,13 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class RestUtils {
+	public static String token = null;
 
 	public enum UserType {
 		TEACHER, MEMBER, LEADER;
 	}
 
 	public static String accessToken(UserType type) {
-		String token = null;
 		RestAssured.baseURI = Environment.BASE_URI;
 		String email = null;
 		String password = null;
