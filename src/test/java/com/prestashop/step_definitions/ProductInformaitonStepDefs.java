@@ -36,7 +36,7 @@ public class ProductInformaitonStepDefs {
 	@Then("product name should be Printed Summer Dress")
 	public void product_name_should_be_Printed_Summer_Dress() {
 		ItemPage itemPage = new ItemPage();
-		assertEquals("Printed Dress", itemPage.itemName.getText());
+		assertEquals("Printed Summer Dress", itemPage.itemName.getText());
 	}
 
 	@Then("correct default count size should be displayed")

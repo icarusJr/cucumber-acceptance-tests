@@ -3,12 +3,13 @@ Feature: Product information
 Background: 
 	Given the user is on the home page 
 
+@product
 Scenario: Display the correct product name 
 	When the user selects Printed Summer Dress 
 	Then product information page should be displayed 
 	And product name should be Printed Summer Dress 
 	
-	@regression
+@regression @product
 Scenario: Default count and size information 
 	When the user selects Printed Summer Dress 
 	Then correct default count size should be displayed 

@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.prestashop</groupId>
@@ -70,15 +71,64 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>com.github.temyers</groupId>
+				<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<id>generateRunners</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>generateRunners</goal>
+						</goals>
+						<configuration>
+							<glue>
+								<package>com.prestashop.step_definitions</package>
+								<package>com.ctbnb.step_definitions</package>
+							</glue>
+							<outputDirectory>target/generated-test-resources/cucumber</outputDirectory>
+							<featuresDirectory>src/test/resources/</featuresDirectory>
+							<tags>
+								<tag>@product</tag>
+							</tags>
+							<cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+							<namingScheme>feature-title</namingScheme>
+							<parallelScheme>FEATURE</parallelScheme>
+							<plugins>
+								<plugin>
+									<name>json</name>
+								</plugin>
+							</plugins>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.21.0</version>
-				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-					<includes>
-						<include>**/*CukesRunner.java</include>
-					</includes>
-				</configuration>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.22.0</version>
+
+				<executions>
+					<execution>
+						<id>acceptance-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+
+						<configuration>
+							<forkCount>50</forkCount>
+							<reuseForks>true</reuseForks>
+							<includes>
+								<include>**/*IT.class</include>
+							</includes>
+							<testFailureIgnore>true</testFailureIgnore>
+						</configuration>
+
+					</execution>
+				</executions>
+
 			</plugin>
 			<plugin>
 				<groupId>net.masterthought</groupId>
@@ -92,12 +142,9 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectname>TestProject</projectname>
-							<!-- path to the report that will be generated -->
+							<projectname>Acceptance Tests</projectname>
 							<outputdirectory>${project.build.directory}/cucumber-html-reports</outputdirectory>
-							<!-- path to the json file that will be used to genetrate report -->
-							<!-- it has to match the one on the cukesrunner -->
-							<cucumberoutput>${project.build.directory}/target/cucumber.json</cucumberoutput>
+							<cucumberoutput>${project.build.directory}/target/cucumber-parallel/*.json</cucumberoutput>
 							<enableflashcharts></enableflashcharts>
 						</configuration>
 					</execution>

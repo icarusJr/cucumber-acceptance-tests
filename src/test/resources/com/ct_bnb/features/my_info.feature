@@ -28,14 +28,7 @@ Scenario Outline: campust test
 		|	efewtrell8c@craigslist.org	  |jamesmay   |
 		|	teachervamikemarcus@gmail.com | mikemarcus|
 		|	htwinbrowb4@blogspot.com	      |kanyabang  |
-		
-		
-		
-		
-		
-		
-		
-		
+	
 Scenario Outline: login as <user> type
 	Given the user logs in as <user>
 	And there are available spots for scheduling
@@ -47,15 +40,3 @@ Scenario Outline: login as <user> type
 	| team member | should not  | 
 	| team lead   | should      |
 	| teacher     | should      |
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
