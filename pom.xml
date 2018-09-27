@@ -98,6 +98,9 @@
 								<plugin>
 									<name>json</name>
 								</plugin>
+								<plugin>
+									<name>junit</name>
+								</plugin>
 							</plugins>
 						</configuration>
 					</execution>
