@@ -121,7 +121,7 @@
 						</goals>
 
 						<configuration>
-							<forkCount>50</forkCount>
+							<forkCount>10</forkCount>
 							<reuseForks>true</reuseForks>
 							<includes>
 								<include>**/*IT.class</include>
@@ -136,7 +136,7 @@
 			<plugin>
 				<groupId>net.masterthought</groupId>
 				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>3.15.0</version>
+				<version>3.20.0</version>
 				<executions>
 					<execution>
 						<id>execution</id>
@@ -145,14 +145,24 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectname>Acceptance Tests</projectname>
-							<outputdirectory>${project.build.directory}/cucumber-html-reports</outputdirectory>
-							<cucumberoutput>${project.build.directory}/target/cucumber-parallel/*.json</cucumberoutput>
-							<enableflashcharts></enableflashcharts>
+							<projectName>cucumber-acceptance-tests</projectName>
+							<!-- output directory for the generated report -->
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<!-- optional, defaults to outputDirectory if not specified -->
+							<inputDirectory>${project.build.directory}/cucumber-parallel</inputDirectory>
+							<jsonFiles>
+								<!-- supports wildcard or name pattern -->
+								<param>**/*.json</param>
+							</jsonFiles>
+							<!-- optional, defaults to outputDirectory if not specified -->
+							<classificationDirectory>${project.build.directory}</classificationDirectory>
+							<classificationFiles>
+								<param>*.properties</param>
+							</classificationFiles>
+							<parallelTesting>true</parallelTesting>
 						</configuration>
 					</execution>
 				</executions>
-
 			</plugin>
 		</plugins>
 	</build>
